@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MpCodingDP.ico" />
+    <None Remove="MpCodingDP.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VirtualKeys\VirtualKeys.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="MpCodingDP.ico" />
+    <Resource Include="MpCodingDP.png" />
+  </ItemGroup>
+
+</Project>

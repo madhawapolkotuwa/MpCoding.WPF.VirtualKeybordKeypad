@@ -1,0 +1,281 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vkb="clr-namespace:VirtualKeys.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/VirtualKeys;component/Dictionaries/Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type vkb:VirtualKeyPad}">
+        <Setter Property="Background" Value="{DynamicResource f_c1}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource f_c12}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type vkb:VirtualKeyPad}">
+
+                    <!--#region KEYPAD STYLES-->
+                    <ControlTemplate.Resources>
+
+                        <Style x:Key="{x:Static vkb:VirtualKeyPad.AttachedVirtualKeyPadPopupStyleKey}" TargetType="Popup">
+                            <Setter Property="Placement" Value="Bottom" />
+                            <Setter Property="PopupAnimation" Value="Slide" />
+                            <Setter Property="AllowsTransparency" Value="True" />
+                        </Style>
+
+                        <Style x:Key="{x:Static vkb:VirtualKeyPad.AttachedVirtualKeyPadStyle}" TargetType="vkb:VirtualKeyPad">
+                            <Setter Property="Margin" Value="10" />
+
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect
+                                        BlurRadius="6"
+                                        Direction="-90"
+                                        Opacity="0.6"
+                                        ShadowDepth="2" />
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+
+                    </ControlTemplate.Resources>
+                    <!--#endregion-->
+
+
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="0"
+                        FocusManager.IsFocusScope="True">
+                        <Grid Margin="1" ClipToBounds="True">
+
+                            <Grid.Resources>
+                                <Style
+                                    x:Key="ButtonBaseStyle"
+                                    BasedOn="{x:Null}"
+                                    TargetType="{x:Type ButtonBase}">
+                                    <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=KeyPressCommand}" />
+                                    <Setter Property="Margin" Value="0.5" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Style>
+                                <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="{x:Type Button}">
+                                    <Border
+                                        x:Name="Chrome"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="10"
+                                        SnapsToDevicePixels="true">
+                                        <ContentPresenter
+                                            Margin="{TemplateBinding Padding}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            RecognizesAccessKey="True"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Foreground" Value="{StaticResource f_c1}" />
+                                            <Setter Property="Background" Value="{StaticResource f_c2}" />
+                                            <Setter Property="BorderBrush" Value="{StaticResource f_c3}" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource f_c6}" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseCaptured" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource f_c4}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                                <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
+                                    <Setter Property="TextElement.Foreground" Value="{StaticResource f_c1}" />
+                                    <Setter Property="TextElement.FontSize" Value="22" />
+                                    <Setter Property="FontSize" Value="22" />
+                                    <Setter Property="Background" Value="{StaticResource f_c2}" />
+                                    <Setter Property="Foreground" Value="{StaticResource f_c1}" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template" Value="{StaticResource ButtonControlTemplate1}" />
+                                </Style>
+
+
+                                <ControlTemplate x:Key="RepeatButtonControlTemplate1" TargetType="{x:Type vkb:VirtualKeyPadRepeatKey}">
+                                    <Grid x:Name="Root">
+                                        <Border
+                                            x:Name="Chrome"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="10"
+                                            SnapsToDevicePixels="true">
+                                            <ContentPresenter
+                                                Margin="{TemplateBinding Padding}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                RecognizesAccessKey="True"
+                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                        </Border>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Foreground" Value="{StaticResource f_c12}" />
+                                            <Setter Property="Background" Value="{StaticResource f_c4}" />
+                                            <Setter Property="BorderBrush" Value="{StaticResource f_c3}" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource f_c13}" />
+                                        </Trigger>
+                                        <Trigger Property="IsMouseCaptured" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource f_c11}" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+
+                                <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type vkb:VirtualKeyPadRepeatKey}">
+                                    <Setter Property="TextElement.Foreground" Value="{StaticResource MarkerBrush}" />
+                                    <Setter Property="TextElement.FontSize" Value="22" />
+                                    <Setter Property="Background" Value="{StaticResource f_c10}" />
+                                    <Setter Property="BorderBrush" Value="{StaticResource f_c12}" />
+                                    <Setter Property="FontSize" Value="22" />
+                                    <Setter Property="Foreground" Value="{StaticResource f_c1}" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template" Value="{StaticResource RepeatButtonControlTemplate1}" />
+                                </Style>
+
+                                <Style
+                                    x:Key="DarkButtonStyle"
+                                    BasedOn="{StaticResource {x:Type Button}}"
+                                    TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="{StaticResource f_c6}" />
+                                </Style>
+                            </Grid.Resources>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button CommandParameter="{x:Static Key.NumPad1}">
+                                <TextBlock Text="1" />
+                            </Button>
+                            <Button
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                CommandParameter="{x:Static Key.NumPad2}">
+                                <TextBlock Text="2" />
+                            </Button>
+                            <Button
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                CommandParameter="{x:Static Key.NumPad3}">
+                                <TextBlock Text="3" />
+                            </Button>
+
+                            <vkb:VirtualKeyPadRepeatKey
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                CommandParameter="{x:Static Key.Back}">
+                                <Viewbox
+                                    Width="22"
+                                    Height="22"
+                                    Margin="5">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z" Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ButtonBase}}, Path=Foreground}" />
+                                    </Canvas>
+                                </Viewbox>
+                            </vkb:VirtualKeyPadRepeatKey>
+
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                CommandParameter="{x:Static Key.NumPad4}">
+                                <TextBlock Text="4" />
+                            </Button>
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                CommandParameter="{x:Static Key.NumPad5}">
+                                <TextBlock Text="5" />
+                            </Button>
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                CommandParameter="{x:Static Key.NumPad6}">
+                                <TextBlock Text="6" />
+                            </Button>
+
+                            <Button
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                CommandParameter="{x:Static Key.NumPad7}">
+                                <TextBlock Text="7" />
+                            </Button>
+                            <Button
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                CommandParameter="{x:Static Key.NumPad8}">
+                                <TextBlock Text="8" />
+                            </Button>
+                            <Button
+                                Grid.Row="2"
+                                Grid.Column="2"
+                                CommandParameter="{x:Static Key.NumPad9}">
+                                <TextBlock Text="9" />
+                            </Button>
+
+                            <Button
+                                Grid.Row="2"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                CommandParameter="{x:Static Key.Enter}"
+                                Style="{StaticResource DarkButtonStyle}">
+                                <Viewbox
+                                    Width="22"
+                                    Height="22"
+                                    Margin="5">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M11,9L12.42,10.42L8.83,14H18V4H20V16H8.83L12.42,19.58L11,21L5,15L11,9Z" Fill="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}, Path=Foreground}" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+
+                            <Button
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                CommandParameter="{x:Static Key.NumPad0}">
+                                <TextBlock Text="0" />
+                            </Button>
+                            <Button
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                CommandParameter="{x:Static Key.Subtract}">
+                                <TextBlock Text="-" />
+                            </Button>
+                            <Button
+                                Grid.Row="3"
+                                Grid.Column="2"
+                                CommandParameter="{x:Static Key.OemPeriod}">
+                                <TextBlock Text="." />
+                            </Button>
+                        </Grid>
+                    </Border>
+
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

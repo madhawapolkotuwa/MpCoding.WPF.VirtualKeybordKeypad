@@ -1,0 +1,53 @@
+﻿<Window
+    x:Class="Tests.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Tests"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mpvk="http://schemas.mpcoding.com/mpcoding/wpf/virtualkeys"
+    Title="MainWindow"
+    Width="800"
+    Height="700"
+    ResizeMode="NoResize"
+    mc:Ignorable="d">
+    <StackPanel>
+
+        <StackPanel Margin="10" Orientation="Vertical">
+            <Image
+                Width="100"
+                Height="100"
+                Margin="30,0"
+                Source="MpCodingDP.png" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="40"
+                FontWeight="Bold"
+                Text="Virtual Keyboard and Keypad" />
+        </StackPanel>
+
+        <TextBlock
+            Margin="10"
+            FontSize="20"
+            Text="Keyboard Test" />
+        <TextBox
+            Height="30"
+            Margin="10,0"
+            mpvk:VirtualKeyboard.KeyboardWidth="600"
+            mpvk:VirtualKeyboard.Mode="TouchAndMouse"
+            FontSize="15" />
+
+        <TextBlock
+            Margin="10"
+            FontSize="20"
+            Text="Keypad Test" />
+        <TextBox
+            Height="30"
+            Margin="10,0"
+            mpvk:VirtualKeyPad.KeyPadWidth="300"
+            mpvk:VirtualKeyPad.Mode="TouchAndMouse"
+            FontSize="15" />
+
+    </StackPanel>
+</Window>
