@@ -5,7 +5,7 @@
     <UseWPF>true</UseWPF>
     <PackageId>MpCoding.WPF.VirualKeyboardKeypad</PackageId>
     <Title>WPF Virtual Keyboard and Keypad</Title>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Madhawa.Polkotuwa</Authors>
     <Company>MpCoding</Company>
     <Description>Popsup Keyboard and Keypad for WPF. (customizable)</Description>
@@ -15,7 +15,7 @@
     <PackageIcon>MpCodingDP.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <PackageTags>WPF; Virtual Keyboard; Virtual Keypad;</PackageTags>
-    <PackageReleaseNotes>Dependencies added</PackageReleaseNotes>
+    <PackageReleaseNotes>Version Update</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
