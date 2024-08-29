@@ -6,9 +6,9 @@
     xmlns:local="clr-namespace:Tests"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mpvk="http://schemas.mpcoding.com/mpcoding/wpf/virtualkeys"
-    Title="MainWindow"
+    Title="Virtual Keyboard and Keypad Test"
     Width="800"
-    Height="700"
+    Height="750"
     ResizeMode="NoResize"
     mc:Ignorable="d">
     <StackPanel>

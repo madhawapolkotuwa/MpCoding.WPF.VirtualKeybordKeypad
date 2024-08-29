@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VirtualKeys\VirtualKeys.csproj" />
+    <PackageReference Include="MpCoding.WPF.VirualKeyboardKeypad" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>

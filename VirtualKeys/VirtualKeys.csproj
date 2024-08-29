@@ -3,19 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>MpCodingDP.ico</ApplicationIcon>
     <PackageId>MpCoding.WPF.VirualKeyboardKeypad</PackageId>
     <Title>WPF Virtual Keyboard and Keypad</Title>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <Authors>Madhawa.Polkotuwa</Authors>
     <Company>MpCoding</Company>
     <Description>Popsup Keyboard and Keypad for WPF. (customizable)</Description>
     <Copyright>MpCoding © 2024</Copyright>
+    <RepositoryUrl>https://github.com/madhawapolkotuwa/MpCoding.WPF.VirtualKeybordKeypad</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/madhawapolkotuwa/MpCoding.WPF.VirtualKeybordKeypad</PackageProjectUrl>
+    <PackageIcon>MpCodingDP.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>WPF; Virtual Keyboard; Virtual Keypad;</PackageTags>
+    <PackageReleaseNotes>Dependencies added</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="MpCodingDP.ico" />
-    <None Remove="MpCodingDP.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +29,7 @@
   <ItemGroup>
     <Reference Include="WindowsInput">
       <HintPath>bin\Debug\netcoreapp3.1\WindowsInput.dll</HintPath>
+		<CopyLocal>true</CopyLocal>
     </Reference>
   </ItemGroup>
 
@@ -32,5 +37,19 @@
     <Resource Include="MpCodingDP.ico" />
     <Resource Include="MpCodingDP.png" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MpCodingDP.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Include="bin\Release\netcoreapp3.1\WindowsInput.dll">
+			<Pack>true</Pack>
+			<PackagePath>lib\netcoreapp3.1\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
